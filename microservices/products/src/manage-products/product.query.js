@@ -1,25 +1,27 @@
 INSERT_PRODUCT = `
-    INSERT INTO Products.products (name, price, description) VALUES(?, ?, ?);
+    INSERT INTO store.products (idproducts, product_name, price,
+            status, color, description, quantity) VALUES(?, ?, ?, ?, ?, ?, ?);
 `;
 
 UPDATE_PRODUCT = `
-    UPDATE Products.products set name = ?, price = ? , description= ? where id = ?;
+    UPDATE store.products set product_name = ?, price = ?, status = ?, 
+            color = ?, description= ?, quantity = ? where id = ?;
 `;
 
 DELETE_PRODUCT = `
-    DELETE FROM Products.products where id = ?;
+    DELETE FROM store.products where id = ?;
 `;
 
 SELECT_ALL_PRODUCT = `
-    SELECT id, name, price, description FROM Products.products;
+    SELECT id, name, price, description FROM store.products;
 `;
 
 SELECT_PRODUCT = `
-    SELECT id, name, price, description FROM Products.products where name like ?;
+    SELECT id, name, price, description FROM store.products where name like ?;
 `;
 
 SELECT_PRODUCT_BY_ID = `
-    SELECT id, name, price, description FROM Products.products where id = ?;
+    SELECT id, name, price, description FROM store.products where id = ?;
 `;
 
 module.exports = {
